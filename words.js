@@ -23,6 +23,9 @@ $.extend(WordGame.prototype, {
     },
     wordIndexIsOutOfBounds: function(index) {
         var words = this.getWords();
+        if (typeof words === 'undefined') {
+            return true;
+        }
         return index < 0 || index >= words.length;
     },
     getWords: function() {
