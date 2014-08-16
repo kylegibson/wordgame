@@ -92,8 +92,6 @@ $.extend(WordGame.prototype, {
         $('.set-chooser').removeClass('hide');
     },
     keyUpHandler: function(e) {
-        console.log(e.keyCode);
-
         if (this.isReturnToSetSelectionKey(e.keyCode)) {
             e.preventDefault();
             this.returnToSetSelection();
