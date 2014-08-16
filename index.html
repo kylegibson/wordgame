@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>The word game</title>
+<style>
+.word {
+  font-size: 400px;
+  color: red;
+  font-weight: bold;
+  font-family: arial;
+  margin: 150px;
+}
+.nav {
+  color: #CCC;
+}
+.hide {
+  display: none;
+}
+.set-chooser ul {
+  border: 1px solid silver;
+}
+
+</style>
+</head>
+<body>
+
+<div class="set-chooser">
+</div>
+
+<div class="set-display hide">
+  <div class="nav">
+    <p>
+    <span class="previous"></span>
+    &lt;--
+    --&gt;
+    <span class="next"></span>
+    </p>
+  </div>
+  <div class="word">
+  </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="words.js"></script>
+<script type="text/javascript">
+$(function() {
+  var game = new WordGame('words.txt');
+  game.init();
+});
+</script>
+</body>
+</html>
