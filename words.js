@@ -15,6 +15,7 @@ function WordGame(source) {
 
 $.extend(WordGame.prototype, {
     init: function() {
+        $(document).on('keyup', this.keyUpHandler.bind(this));
         $.get(this.source).done(this.wordLoader.bind(this));
     },
     wordLoader: function(data) {
@@ -54,7 +55,6 @@ $.extend(WordGame.prototype, {
         $('.word').text('');
         $('.set-chooser').addClass('hide');
         $('.set-display').removeClass('hide');
-        $(document).on('keyup', this.keyUpHandler.bind(this));
     },
     displaySets: function() {
         var self = this;
@@ -95,6 +95,9 @@ $.extend(WordGame.prototype, {
         $('.set-chooser').removeClass('hide');
     },
     keyUpHandler: function(e) {
+        if (this.wordIndexIsOutOfBounds()) {
+            return;
+        }
         if (this.isReturnToSetSelectionKey(e.keyCode)) {
             e.preventDefault();
             this.returnToSetSelection();
